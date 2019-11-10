@@ -1,10 +1,12 @@
 package com.example.cometevents;
 //package com.example.aoc.googlemapdemo;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.cometevents.R;
@@ -16,10 +18,50 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
-public class giHomeActivity extends FragmentActivity implements OnMapReadyCallback {
+import java.util.HashMap;
+import java.util.Map;
+
+public class HomeActivity extends FragmentActivity implements OnMapReadyCallback {
+    // Access a Cloud Firestore instance from your Activity
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private void addNewContact() {
+        Map<String, Object> newContact = new HashMap<>();
+        newContact.put("Name", "John");
+        newContact.put("Description", "john@gmail.com");
+        newContact.put("Location", "080-0808-009");
+        db.collection("Events").document("NewEvents!").set(newContact)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(HomeActivity.this, "User Registered",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(HomeActivity.this, "ERROR" + e.toString(),
+                                Toast.LENGTH_SHORT).show();
+                        Log.d("TAG", e.toString());
+                    }
+                });
+    }
+
 
     GoogleMap map;
+        // Create a new user with a first and last name
+        Map<String, Object> user = new HashMap<>();
+
+// Add a new document with a generated ID
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +69,7 @@ public class giHomeActivity extends FragmentActivity implements OnMapReadyCallba
         setContentView(R.layout.activity_home);
         SupportMapFragment mapFragment  = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        addNewContact();
     }
 
     public void onMapReady(GoogleMap googleMap){
