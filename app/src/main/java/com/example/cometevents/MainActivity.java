@@ -3,6 +3,7 @@ package com.example.cometevents;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -69,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
                                 //Intent intToHome = new Intent(LoginActivity.this, HomeActivity.class);
                                 //startActivity(intToHome);
                                 Toast.makeText(MainActivity.this,"Logged in!",Toast.LENGTH_SHORT).show();
+                                Intent intToHome = new Intent(MainActivity.this, HomeActivity.class);
+                                startActivity(intToHome);
                                 //password.setError("logged in!");
                                 //password.requestFocus();
                             }
