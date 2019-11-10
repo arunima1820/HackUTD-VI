@@ -13,12 +13,6 @@ android:orientation="vertical">
         android:layout_alignParentTop="true"
         android:layout_marginTop="0dp" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button" />
-
     <include
         layout="@layout/toolbar_top"
         android:layout_width="match_parent"
