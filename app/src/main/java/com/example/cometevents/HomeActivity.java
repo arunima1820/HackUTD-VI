@@ -30,7 +30,7 @@ public class HomeActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap){
         Toast.makeText(HomeActivity.this,"OnMapReady running!",Toast.LENGTH_SHORT).show();
         map = googleMap;
-        LatLng utd = new LatLng(19.169257,  73.341601);
+        LatLng utd = new LatLng(32.993795, -96.758093);
         map.addMarker(new MarkerOptions().position(utd).title("UTD"));
         map.moveCamera(CameraUpdateFactory.newLatLng(utd));
     }

@@ -10,10 +10,47 @@
       "client_info": {
         "mobilesdk_app_id": "1:947777855505:android:1bb06c7f21f11541e691b0",
         "android_client_info": {
+          "package_name": "com.HackUTD.CometEvents"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "947777855505-khgpsvoog47b59gbjahjo895ruqtu0t7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLz_FCQqTjcFZIuuGPwBeKV1gmW9d-7u4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "947777855505-khgpsvoog47b59gbjahjo895ruqtu0t7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:947777855505:android:4613d62bf1d73e68e691b0",
+        "android_client_info": {
           "package_name": "com.example.cometevents"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "947777855505-mfd2pn6uvufg7qqk4dj5a6anm4p3ao8a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cometevents",
+            "certificate_hash": "2b2b06858b1381a711e8ddc64514d7de1b1bd44f"
+          }
+        },
         {
           "client_id": "947777855505-khgpsvoog47b59gbjahjo895ruqtu0t7.apps.googleusercontent.com",
           "client_type": 3
