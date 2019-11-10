@@ -12,3 +12,4 @@
 #### - Google Maps API credentials
 #### - Adobe XD
 #### - Node.js
+#### - Git Versioning and GitHub
