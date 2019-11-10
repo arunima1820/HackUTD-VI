@@ -14,7 +14,7 @@
         android:layout_height="300dp"
         android:layout_centerHorizontal="true"
         android:gravity="center_vertical"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="100dp"
         android:src="@drawable/logo" />
 
     <EditText
@@ -24,8 +24,8 @@
         android:layout_centerHorizontal="true"
         android:gravity="center_vertical"
         android:ems="10"
-        android:layout_marginTop="500dp"
         android:text="testing@gmail.com"
+        android:layout_marginTop="450dp"
         android:inputType="textEmailAddress" />
 
     <EditText
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:gravity="center_vertical"
-        android:layout_marginTop="600dp"
+        android:layout_marginTop="560dp"
         android:ems="10"
         android:text="123456"
         android:inputType="textPassword" />
@@ -46,7 +46,7 @@
         android:layout_centerHorizontal="true"
         android:background="@color/white"
         android:gravity="center_vertical"
-        android:layout_marginTop="750dp"
+        android:layout_marginTop="670dp"
         android:textAlignment="center"
         android:src="@drawable/login"    />
 
