@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "947777855505",
+    "firebase_url": "https://hackutdcometevents.firebaseio.com",
+    "project_id": "hackutdcometevents",
+    "storage_bucket": "hackutdcometevents.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:947777855505:android:1bb06c7f21f11541e691b0",
+        "android_client_info": {
+          "package_name": "com.HackUTD.CometEvents"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "947777855505-khgpsvoog47b59gbjahjo895ruqtu0t7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLz_FCQqTjcFZIuuGPwBeKV1gmW9d-7u4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "947777855505-khgpsvoog47b59gbjahjo895ruqtu0t7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
