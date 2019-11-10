@@ -17,7 +17,7 @@ import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class HomeActivity extends FragmentActivity implements OnMapReadyCallback {
+public class giHomeActivity extends FragmentActivity implements OnMapReadyCallback {
 
     GoogleMap map;
 
