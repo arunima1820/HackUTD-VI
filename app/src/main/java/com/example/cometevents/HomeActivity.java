@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -41,9 +42,11 @@ public class HomeActivity extends FragmentActivity implements OnMapReadyCallback
     //private static final String TAG = MainActivity.class.getSimpleName();
     // Access a Cloud Firestore instance from your Activity
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    GoogleMap map;
+    GoogleMap mapView;
     Map<String, Object> user = new HashMap<>();
     ImageButton calBtn;
+    ImageButton addEventBtn;
+    ImageButton mapBtn;
 
     //HashMap<String,Marker> markers = new HashMap<>();
     //ArrayList<Marker> markers = new ArrayList<>();
@@ -53,38 +56,62 @@ public class HomeActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        SupportMapFragment mapFragment  = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        SupportMapFragment mapFragment  = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapView);
+        assert mapFragment != null;
         mapFragment.getMapAsync(this);
         calBtn = findViewById(R.id.calendar);
+        addEventBtn = findViewById(R.id.add);
+        mapBtn = findViewById(R.id.mapbutton);
         readAllEvents();
 
         calBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Toast.makeText(HomeActivity.this,"Working",Toast.LENGTH_SHORT).show();
                 Intent intToHome = new Intent(HomeActivity.this, calendarActivity.class);
-                //startActivity(intToHome);
+                startActivity(intToHome);
             }
         });
+
+        addEventBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intToAddActivity = new Intent(HomeActivity.this, AddActivity.class);
+                startActivity(intToAddActivity);
+            }
+                                       }
+        );
+
+        mapBtn.setOnClickListener(new View.OnClickListener(){
+               @Override
+               public void onClick(View v) {
+                   Intent intToAddActivity = new Intent(getBaseContext(),HomeActivity.class);
+                   startActivity(intToAddActivity);
+               }
+           }
+        );
     }
 
     public void onMapReady(GoogleMap googleMap){
         //Toast.makeText(HomeActivity.this,"OnMapReady running!",Toast.LENGTH_SHORT).show();
         float zoomLevel = 16;
-        map = googleMap;
+        mapView = googleMap;
         //map.setOnMarkerClickListener(this);
-        map.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+        mapView.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
             public void onInfoWindowClick(Marker marker) {
-                Toast.makeText(HomeActivity.this,"Show more detail about " + marker.getTitle(),Toast.LENGTH_SHORT).show();
+                Intent toMoreDetail = new Intent(HomeActivity.this, DetailActivity.class);
+                startActivity(toMoreDetail);
+                //Toast.makeText(HomeActivity.this,"Show more detail about " + marker.getTitle(),Toast.LENGTH_SHORT).show();
             }
         });
         LatLng utd = new LatLng(32.985774, -96.750990);
         //map.addMarker(new MarkerOptions().position(utd).title("UTD"));
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(utd,zoomLevel));
+        mapView.moveCamera(CameraUpdateFactory.newLatLngZoom(utd,zoomLevel));
 
         GroundOverlayOptions UTDMap = new GroundOverlayOptions().image(BitmapDescriptorFactory.fromResource(R.drawable.utdmap)).position(utd,2160f,2000f);
 
-        map.addGroundOverlay(UTDMap);
+        mapView.addGroundOverlay(UTDMap);
     }
 
     /*@Override
@@ -147,7 +174,7 @@ public class HomeActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     public  Marker createMarker(double latitude, double longitude, String title,String desc){
-        Marker m = map.addMarker(new MarkerOptions()
+        Marker m = mapView.addMarker(new MarkerOptions()
         .position(new LatLng(latitude,longitude)).anchor(0.5f,0.5f).title(title).snippet(desc));
 
         //markers.add(m);

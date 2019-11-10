@@ -7,19 +7,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class calendarActivity extends AppCompatActivity {
+public class AddActivity extends AppCompatActivity {
 
-    ImageButton mapbtn;
-    ImageButton addBtn;
+    ImageButton mapBtn;
+    ImageButton calBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calendar);
-        mapbtn = findViewById(R.id.mapbutton);
-        addBtn = findViewById(R.id.add);
-
-        mapbtn.setOnClickListener(new View.OnClickListener(){
+        setContentView(R.layout.activity_add);
+        mapBtn = findViewById(R.id.mapbutton);
+        calBtn = findViewById(R.id.calendar);
+        mapBtn.setOnClickListener(new View.OnClickListener(){
               @Override
               public void onClick(View v) {
                   Intent intToAddActivity = new Intent(getBaseContext(),HomeActivity.class);
@@ -28,10 +27,10 @@ public class calendarActivity extends AppCompatActivity {
           }
         );
 
-        addBtn.setOnClickListener(new View.OnClickListener(){
+        calBtn.setOnClickListener(new View.OnClickListener(){
               @Override
               public void onClick(View v) {
-                  Intent intToAddActivity = new Intent(getBaseContext(),AddActivity.class);
+                  Intent intToAddActivity = new Intent(getBaseContext(),calendarActivity.class);
                   startActivity(intToAddActivity);
               }
           }
