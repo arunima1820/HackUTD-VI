@@ -1,3 +1,13 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" >
     <string name="app_name">CometEvents</string>
+
+
+    <string name="event_name" formatted="false">%s</string>
+    <string name="date" formatted="true">%d/%d/%d</string>
+    <string name="location" formatted="true">%s</string>
+    <string name="description" formatted="true">%s</string>
+    <string name="time" formatted="true">$d - $d</string>
+    <string name="am">AM</string>
+    <string name="pm">PM</string>
+
 </resources>
