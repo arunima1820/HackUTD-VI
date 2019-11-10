@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,6 +28,7 @@ public class DetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //readAllEvents();
         setContentView(R.layout.activity_detail);
         backToMap = findViewById(R.id.mapbutton);
         backToMap.setOnClickListener(new View.OnClickListener(){
@@ -37,9 +39,6 @@ public class DetailActivity extends AppCompatActivity {
               }
           }
         );
-
-        //readAllEvents();
-
     }
 
     private void readAllEvents(){
@@ -51,21 +50,27 @@ public class DetailActivity extends AppCompatActivity {
                     GeoPoint g = (GeoPoint) document.get("Location");
                     double x = g.getLatitude();
                     double y = g.getLongitude();
-                    String eventName = document.toString();
-                    String organizer = (String) document.get("Organizer");
-                    String locationName = (String) document.get("LocationName");
-                    String description = (String) document.get("Description");
-                    String time = (String) document.get("Time");
+                    String eventNameStr = document.toString();
 
-                    TextView eventNameView = findViewById(R.id.eventNameID);
-                    TextView eventLocation = findViewById(R.id.eventLocationID);
-                    TextView eventDescription = findViewById(R.id.eventDescription);
-                    TextView date = findViewById(R.id.eventDateID);
+                    //String  = (String) document.get("Organizer");
+                    String locationNameStr = (String) document.get("LocationName");
+                    String descriptioStrn = (String) document.get("Description");
+                    String timeStr = (String) document.get("Time");
 
-                    eventNameView.setText(eventName);
-                    eventLocation.setText(locationName);
-                    eventDescription.setText(description);
-                    date.setText(time);
+                    TextView eventNameView = (TextView) findViewById(R.id.eventNameID);
+                    TextView eventLocation = (TextView) findViewById( R.id.eventLocationID);
+                    TextView eventDescription = (TextView) findViewById(R.id.eventDescription);
+                    TextView date = (TextView) findViewById(R.id.eventDateID);
+
+
+                    Resources res =  getResources();
+                    String text = String.format(res.getString(R.string.event_name), eventNameStr);
+
+                    eventNameView.setText(res.getString((R.string.event_name), eventNameStr));
+                    eventLocation.setText(locationNameStr);
+                    eventDescription.setText(descriptioStrn);
+                    date.setText(timeStr);
+                    Toast.makeText(DetailActivity.this,eventNameView.getText(),Toast.LENGTH_SHORT).show();
                 }}
                 }
             }
