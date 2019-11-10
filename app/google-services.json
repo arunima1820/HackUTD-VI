@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:947777855505:android:1bb06c7f21f11541e691b0",
         "android_client_info": {
-          "package_name": "com.HackUTD.CometEvents"
+          "package_name": "com.example.cometevents"
         }
       },
       "oauth_client": [
